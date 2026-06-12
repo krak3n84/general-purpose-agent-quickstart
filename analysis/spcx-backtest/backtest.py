@@ -127,7 +127,8 @@ def comparables_analysis():
         summary[m] = {
             "median_from_offer": df[f"ret_offer_{m}m"].median(),
             "median_from_d1close": df[f"ret_d1close_{m}m"].median(),
-            "pct_negative_from_d1close": (df[f"ret_d1close_{m}m"] < 0).mean(),
+            "pct_negative_from_d1close": (df[f"ret_d1close_{m}m"].dropna() < 0).mean(),
+            "n": df[f"ret_d1close_{m}m"].notna().sum(),
         }
 
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
@@ -179,7 +180,7 @@ def main():
         lines.append(
             f"- {m}m: median return from offer **{s['median_from_offer']:+.1%}**, "
             f"from day-1 close **{s['median_from_d1close']:+.1%}**, "
-            f"negative from day-1 close in **{s['pct_negative_from_d1close']:.0%}** of cases"
+            f"negative from day-1 close in **{s['pct_negative_from_d1close']:.0%}** of {s['n']} cases"
         )
     lines += [
         f"- Spearman correlation, first-day pop vs 6m return from day-1 close: "
