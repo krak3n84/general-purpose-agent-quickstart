@@ -1,0 +1,18 @@
+date,price_per_share,implied_valuation_b,event_type,source,quality
+2023-12-12,19.40,180,tender,Bloomberg/CNBC Dec 2023 tender $97 pre-split,training_data
+2024-06-27,22.40,210,tender,Bloomberg 2024-06-27 $112 pre-split,verified
+2024-07-15,23.72,,secondary_mark,Forge Price $118.59 pre-split (Forge $211.8B basis dropped: implies inconsistent share count),verified
+2024-12-11,37.00,350,tender,Bloomberg/CNBC $185 pre-split,verified
+2024-12-30,45.80,,secondary_mark,Forge ~$229 pre-split,verified
+2025-01-06,42.68,,secondary_mark,Forge $213.39 pre-split,verified
+2025-07-15,42.40,400,tender,ImpactWealth/EBC ~$212 pre-split,verified
+2025-08-06,49.34,,secondary_mark,Forge $246.69 pre-split,verified
+2025-10-15,55.44,,secondary_mark,Nasdaq Private Market $277.19 pre-split,verified
+2025-11-19,44.88,,secondary_mark,Forge $224.40 pre-split,verified
+2025-12-05,84.20,800,tender,SatNews $421 pre-split,verified
+2026-01-25,84.50,800,secondary_mark,BitMEX guide $420-425 pre-split,verified
+2026-04-09,121.24,,secondary_mark,Forge $606.19 pre-split,verified
+2026-04-15,120.88,,secondary_mark,Forge $604.39 pre-split (Forge $1.03T basis dropped: share-count basis conflicts with IPO basis),verified
+2026-05-04,105.32,,company_fmv,5-for-1 split FMV $526.59->$105.32,verified
+2026-05-11,126.81,,secondary_mark,Forge $634.05 pre-split basis via Motley Fool ($1.51T basis dropped: conflicts with Apr Forge basis),verified
+2026-06-11,128.84,,secondary_mark,Forge Price final pre-IPO,verified

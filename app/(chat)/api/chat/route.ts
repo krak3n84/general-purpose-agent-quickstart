@@ -1,3 +1,5 @@
+import { Composio } from "@composio/core";
+import { VercelProvider } from "@composio/vercel";
 import { geolocation, ipAddress } from "@vercel/functions";
 import {
   convertToModelMessages,
@@ -40,8 +42,6 @@ import {
 } from "@/lib/db/queries";
 import type { DBMessage } from "@/lib/db/schema";
 import { ChatbotError } from "@/lib/errors";
-import { Composio } from "@composio/core";
-import { VercelProvider } from "@composio/vercel";
 import { checkIpRateLimit } from "@/lib/ratelimit";
 import type { ChatMessage } from "@/lib/types";
 import { convertToUIMessages, generateUUID } from "@/lib/utils";
@@ -49,7 +49,6 @@ import { generateTitleFromUserMessage } from "../../actions";
 import { type PostRequestBody, postRequestBodySchema } from "./schema";
 
 export const maxDuration = 60;
-
 
 // When using Model = Sonnet 4.6 we get a bug: ""
 // Composio generates tool call IDs that can contain characters outside the
@@ -248,7 +247,8 @@ export async function POST(request: Request) {
           try {
             const composio = new Composio({ provider: new VercelProvider() });
             const composioSession = await composio.create(session.user.id);
-            composioTools = (await composioSession.tools()) as unknown as ToolSet;
+            composioTools =
+              (await composioSession.tools()) as unknown as ToolSet;
           } catch (error) {
             console.error("Composio tool initialization failed:", error);
           }
